@@ -1,0 +1,668 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>MYSQL Y PHP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="color/default.css" rel="stylesheet">
+
+	<link rel="shortcut icon" href="img/favicon.jpg">
+
+	<div id="sfcprp3gza7s9bnkw6df99dlcm2kk7yfmuz"></div><script type="text/javascript" src="https://counter7.wheredoyoucomefrom.ovh/private/counter.js?c=prp3gza7s9bnkw6df99dlcm2kk7yfmuz&down=async" async></script><noscript><a href="https://www.contadorvisitasgratis.com" title="contador de visitas com"><img src="https://counter7.wheredoyoucomefrom.ovh/private/contadorvisitasgratis.php?c=prp3gza7s9bnkw6df99dlcm2kk7yfmuz" border="0" title="contador de visitas com" alt="contador de visitas com"></a></noscript>
+	<style type="text/css">
+	.video-responsive {
+position: relative;
+padding-bottom: 56.25%; /* 16/9 ratio */
+padding-top: 30px; /* IE6 workaround*/
+height: 0;
+overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+position: absolute;
+top: 0;
+left: 0;
+margin-left: 50px;
+width: 70%;
+height: 70%;
+}
+		
+		body{background-image:url(img/slider1.jpg);}
+	</style>
+	<style type="text/css">* Global */
+
+
+body {
+    background: #a83b3b;
+    padding: 40px;
+}  
+
+div { word-break: break-all; }
+
+img { max-width:100%; }
+
+a {
+	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease; 
+	}
+    a:hover {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+        filter: alpha(opacity=50); /* IE7 */
+        opacity: 0.6;
+        text-decoration: none;
+    }
+
+
+/* Container */
+.container-fluid {
+    background: #fbf4e0;
+    margin: 40px auto 10px;
+    padding: 20px 0px;
+    max-width: 960px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Page Header */
+.page-header {
+    background: #fbf4e0;
+    margin: -30px 0px 0px;
+    padding: 20px 40px;
+    border-top: 4px solid #ccc;
+    color: #a83b3b;
+    text-transform: uppercase;
+    }
+    .page-header h3 {
+        line-height: 0.88rem;
+        color: #a83b3b;
+        }
+
+
+
+/* Thumbnail Box */
+.caption {
+    height: 140px;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 20px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.caption .span4, .caption .span8 {
+    padding: 0px 20px;
+}
+.caption .span4 {
+    border-right: 1px dotted #CCCCCC;
+}
+.caption h3 {
+    color: #a83b3b;
+    line-height: 2rem;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+    }
+    .caption p {
+        font-size: 1rem;
+        line-height: 1.6rem;
+        color: #a83b3b;
+        }
+        .btn.btn-mini {
+            background: #a83b3b;
+            border-radius: 0 0 0 0;
+            color: #fbf4e0;
+            font-size: 0.63rem;
+            text-shadow: none !important;
+            }
+.carousel-control {
+    top: 33%;
+}
+
+
+
+
+/* Footer */
+.footer {
+    margin: auto;
+    width: 100%;
+    max-width: 960px;
+    display: block;
+    font-size: 0.69rem;
+    }
+    .footer, .footer a {
+        color: #fff;
+        }
+        p.right  { 
+            float: right; 
+            }
+
+
+
+
+/* ADD-ON
+-------------------------------------------------- */
+body:after{font-size:1rem;font-weight:bold;position:fixed;bottom:0;width:100%;text-align:center;background-color:hsla(1,60%,40%,0.7);color:#fff;height:20px;padding-top:0;margin-left:0;left:0}@media only screen and (min-width:320px){body:after{background-color:hsla(90,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:480px){body:after{background-color:hsla(180,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:768px){body:after{background-color:hsla(270,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:980px){body:after{background-color:hsla(300,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}@media only screen and (min-width:1024px){body:after{background-color:hsla(360,60%,40%,0.7);height:20px;padding-top:0;margin-left:0}}
+
+::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+
+a, a:focus, a:active, a:hover, object, embed { outline: none; }
+:-moz-any-link:focus { outline: none; }
+input::-moz-focus-inner { border: 0; }</style>
+</head>
+
+<body>
+	<!-- navbar -->
+	<div class="navbar-wrapper">
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<!-- Responsive navbar -->
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+				</a>
+					<h1 class="brand"><a href="index.html"></a></h1>
+					<!-- navigation -->
+					<nav class="pull-right nav-collapse collapse">
+
+						<ul id="menu-main" class="nav">
+							<li><a title="team" href="#based">BASE DE DATOS</a></li>
+							<li><a title="services" href="#services">PHP</a></li>
+							<li><a title="works" href="#works">BASE DE DATOS Y PHP</a></li>
+							<li><a title="blog" href="#blog">ARTICULOS DE INTERES</a></li>
+							<li><a title="contact" href="#con">OPERACIONES EN MYSQL</a></li>
+							<li><a target="_blank" href="page.html">INFORMACION DE AUTOR</a></li>
+							<li><a target="_blank" href="https://twitter.com/universidadunad?lang=es"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
+						</ul>
+
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Header area -->
+	<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+
+    
+        
+    <div class="carousel slide" id="myCarousel">
+        <div class="carousel-inner">
+ 
+            <div class="item active">
+            
+                <div class="bannerImage">
+                    <a href="#"><img src="https://programacion22.files.wordpress.com/2015/10/how-to-update-your-php-version.png" alt=""></a>
+                </div>
+                            
+                <div class="caption row-fluid">
+                    <div class="span4"><h3>PHP</h3>
+                    <a target="_blank class="btn btn-mini" href="https://www.php.net/manual/es/intro-whatis.php">&raquo; LEER MAS</a>
+                    </div>                	
+                	<div class="span8"><p>es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML..</p>
+                	</div>
+                </div>
+                                                         
+            </div><!-- /Slide1 --> 
+
+            <div class="item">
+            
+                <div class="bannerImage">
+                    <a href="#"><img src="https://tr3.cbsistatic.com/hub/i/r/2016/08/02/ffb48ac0-b355-4aec-b814-04c79e1e1bfd/resize/1200x/292c4adbf288356b843876804b244d69/mysqlhero.jpg" alt=""></a>
+                </div>
+                            
+                <div class="caption row-fluid">
+                    <div class="span4"><h3>MYSQL</h3>
+                    <a target="_blank" class="btn btn-mini" href="https://concepto.de/base-de-datos/#ixzz5qBM6SaE9">&raquo; Read More</a>
+                    </div>                	
+                	<div class="span8"><p>Se llama base de datos, o también banco de datos, a un conjunto de información perteneciente a un mismo contexto, ordenada de modo sistemático para su posterior recuperación, análisis y/o transmisión. Existen actualmente muchas formas de bases de datos, que van desde una biblioteca hasta los vastos conjuntos de datos de usuarios de una empresa de telecomunicaciones
+
+Fuente: https://concepto.de/base-de-datos/#ixzz5qBM6SaE9</p>
+                	</div>
+                </div>
+                                                         
+            </div><!-- /Slide2 -->             
+
+            <div class="item">
+            
+                <div class="bannerImage">
+                    <a href="#"><img src="img/882.jpg" alt=""></a>
+                    <a href="https://www.freepik.es/fotos-vectores-gratis/fondo">Foto de fondo creado por natanaelginting - www.freepik.es</a>
+                </div>
+                            
+                <div class="caption row-fluid">
+                    <div class="span4"><h3>PHP Y MYSQL</h3>
+                    <a class="btn btn-mini" href="#">&raquo; lee mas</a>
+                    </div>                	
+                	<div class="span8"><p>Aprender a administrar una base de datos con MySQL. Conocer algunas herramientas que ayudan a administrar una base de datos de MySQL. Aprender a acceder a una base de datos desde PHP. Aprender a realizar una consulta SELECT y mostrar el resultado en una página web.</p>
+                	</div>
+                </div>
+                                                         
+            </div><!-- /Slide2 -->                      
+ 
+        </div>
+        
+        <div class="control-box">                            
+            <a data-slide="prev" href="#myCarousel" class="carousel-control left">‹</a>
+            <a data-slide="next" href="#myCarousel" class="carousel-control right">›</a>
+        </div><!-- /.control-box -->   
+                              
+    </div><!-- /#myCarousel -->
+        
+</div><!-- /.span12 -->          
+</div><!-- /.row --> 
+</div><!-- /.container -->
+
+                            
+<!-- Delete This -->                        
+
+	<!-- spacer section -->
+	<section class="spacer green">
+		<div class="container">
+			<div class="row">
+				<div class="span9 alignright flyLeft">
+					
+					
+					
+				</div>
+				<div class="span9 aligncenter flyRight">
+					<img  align="center" class="icon-coffee icon-10x" src="http://ruv.unad.edu.co/templates/unad2015/images/logoUNAD2015.png">
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end spacer section -->
+	<!-- section: team -->
+	<section id="about" class="section" name="based">
+		<div class="container">
+			<h4>BASE DE DATOS </h4>
+			<div class="row">
+				<div class="span4 offset1">
+					<div>
+						
+						<p>
+							Es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistemáticamente para su posterior uso. En este sentido, una Biblioteca puede considerarse una base de datos compuesta en su mayoría por documentos y textos impresos en papel e indexados para su consulta.
+						</p>
+						<h3>Ventajas de los SGBD</h4>
+							<br>
+<p>
+Proveen facilidades para la manipulación de grandes volúmenes de datos. Entre éstas se encuentran:
+<br>
+•	Simplifican la Programación de equipos de consistencia.
+<br>
+•	Manejando las Políticas de respaldo adecuadas, garantizan que los cambios de la base serán siempre consistentes sin importar si hay errores correctamente, etc.
+<br>
+•	Organizan los datos con un impacto mínimo en el Código de los programas.
+<br>
+•	Bajan drásticamente los tiempos de desarrollo y aumentan la calidad del sistema desarrollado si son bien explotados por los desarrolladores.
+<br>
+•	Usualmente, proveen interfaces y lenguajes de consulta que simplifican la Recuperación de los datos
+
+	</p>			
+					</div>
+				</div>
+				<div class="span6">
+					<div class="aligncenter">
+						<img src="img/db.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span2 offset1 flyIn">
+					<div class="people">
+						<img class="team-thumb img-circle" src="https://cdn.iconscout.com/icon/free/png-256/postgresql-11-1175122.png" alt="" />
+						<h3>postgresql</h3>
+						
+					</div>
+				</div>
+				<div class="span2 flyIn">
+					<div class="people">
+						<img class="team-thumb img-circle" src="https://linube.com/blog/wp-content/uploads/sql-server-min.png" alt="" />
+						<h3>sql server</h3>
+						
+					</div>
+				</div>
+				<div class="span2 flyIn">
+					<div class="people">
+						<img class="team-thumb img-circle" src="https://www.appvizer.es/media/application/16298/logo/logo-oracle-database.png" alt="" />
+						<h3>oracle</h3>
+						
+					</div>
+				</div>
+				<div class="span2 flyIn">
+					<div class="people">
+						<img class="team-thumb img-circle" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sqlite-square-icon.svg/256px-Sqlite-square-icon.svg.png" alt="" />
+						<h3>sql lite</h3>
+						
+					</div>
+				</div>
+				<div class="span2 flyIn">
+					<div class="people">
+						<img class="team-thumb img-circle" src="https://3.bp.blogspot.com/-NLgOIL0vKJg/W0yrvqx8ZsI/AAAAAAAABfg/l7fFkNQf5S02YIanj4H9KKWiZJNmSlKigCLcBGAs/s1600/mongodb.png" alt="" />
+						<h3>mongo DB</h3>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+	</section>
+	
+
+
+
+
+
+
+
+	<section id="services" class="section orange">
+		<div class="container">
+
+
+
+
+<div class="container">
+			<h4>PHP </h4>
+			<div class="row">
+				<div class="span4 offset1">
+					<div>
+						
+						<p>
+							PHP es un lenguaje de código abierto muy popular, adecuado para desarrollo web y que puede ser incrustado en HTML. Es popular porque un gran número de páginas y portales web están creadas con PHP. Código abierto significa que es de uso libre y gratuito para todos los programadores que quieran usarlo. Incrustado en HTML significa que en un mismo archivo vamos a poder combinar código PHP con código HTML, siguiendo unas reglas.</p>
+                           <br>
+                           <br>
+									
+					</div>
+				</div>
+				<div class="span6">
+					<div class="aligncenter">
+						<img src="https://master-diseño.com/wp-content/uploads/2017/08/Conceptos-b%C3%A1sicos-PHP-y-SQL-300x198.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+			
+
+
+
+
+			
+		
+		</div>
+	</section>
+	<!-- end section: services -->
+	<!-- section: works -->
+	<section  id="contact" class="section green" name="works">
+		<div class="container">
+			<h4>BASES DE DATOS Y PHP</h4>
+			
+			<div class="blankdivider30">
+			</div>
+			<div class="row">
+				<div class="span12">
+					<div class="video-responsive">
+						
+						<iframe   src="https://www.youtube.com/embed/YllUp811ayE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+				<!-- ./span12 -->
+			</div>
+		</div>
+	</section>
+	<!-- spacer section -->
+	<section class="spacer bg3">
+		<div class="container">
+			<div class="row">
+				<div class="span12 aligncenter flyLeft">
+					
+				</div>
+				<div class="span12 aligncenter flyRight">
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end spacer section -->
+	<!-- section: blog -->
+	<section id="blog" class="section">
+		<div class="container">
+			<h4>ARTICULOS DE INTERES</h4>
+			<!-- Three columns -->
+			<div class="row">
+				<div class="span3">
+					<div class="home-post">
+						<div class="post-image">
+							<img class="max-img" src="img/blog/img5.jpg" alt="" />
+						</div>
+						<div class="post-meta">
+							<i class="icon-file icon-2x"></i>
+							<span class="date">Noviembre 16, 2016</span>
+							<span class="tags"><a href="#"></a>, <a href="#"></a></span>
+						</div>
+						<div class="entry-content">
+							<h5><strong><a href="#">13 trucos y consejos de PHP que pueden hacerte la vida (profesional) más fácil</a></strong></h5>
+							<p>
+								PHP tiene bastante mala prensa. En las conferencias no hay ponente que quiera ser cool que no lance su pullita hacia PHP y los phperos. &hellip;
+							</p>
+							<a target="_blank" href="https://www.genbeta.com/desarrollo/13-trucos-y-consejos-de-php-que-pueden-hacerte-la-vida-profesional-mas-facil" class="more">LEER MAS</a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="home-post">
+						<div class="post-image">
+							<img class="max-img" src="img/blog/img6.jpg" alt="" />
+						</div>
+						<div class="post-meta">
+							<i class="icon-file icon-2x"></i>
+							<span class="date">DICIEMBRE 12, 2015</span>
+							<span class="tags"><a href="#"></a>, <a href="#"></a></span>
+						</div>
+						<div class="entry-content">
+							<h5><strong><a href="#">PHP 7, ahora el doble de veloz: las webs cargarán más rápido</a></strong></h5>
+							<p>
+								Una importante noticia relacionada con la programación web, pero que también nos atañe al resto de los mortales, no sólo a los programadores web, es la que a continuación te traemos: PHP versión 7 ha sido liberada. &hellip;
+							</p>
+							<a target="_blank" href="https://computerhoy.com/noticias/software/php-7-ahora-doble-veloz-webs-cargaran-mas-rapido-37817" class="more">LEE MAS</a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="home-post">
+						<div class="post-image">
+							<img class="max-img" src="img/blog/php.jpg" alt="" />
+						</div>
+						<div class="post-meta">
+							<i class="icon-file icon-2x"></i>
+							<span class="date">June 22, 2013</span>
+							<span class="tags"> </span>
+						</div>
+						<div class="entry-content">
+							<h5><strong><a href="#">Definir variables en PHP</a></strong></h5>
+							<p>
+								Definir variables en PHP nos es util en todo el codigo que hagamos, ya que las variables son la principal herramienta para administrar informacion y datos de nuestra aplicación web a realizar. &hellip;
+							</p>
+							<a target="_blank" href="http://lineadecodigo.com/php/definir-variables-en-php/" class="more">LEER MAS</a>
+						</div>
+					</div>
+				</div>
+				<div class="span3">
+					<div class="home-post">
+						<div class="post-image">
+							<img class="max-img" src="img/blog/phm.jpg" alt="" />
+						</div>
+						<div class="post-meta">
+							<i class="icon-file icon-2x"></i>
+							<span class="date"> 2012</span>
+							<span class="tags"><a href="#"></a>, <a href="#"></a></span>
+						</div>
+						<div class="entry-content">
+							<h5><strong><a >PHP Y MYSQL</a></strong></h5>
+							<p>
+								Aplicaciones Web/Sistemas Webs &hellip;
+							</p>
+							<a target="_blank" href="https://www.fdi.ucm.es/profesor/jpavon/web/35-PHP-MySQL.pdf" class="more">LEER MAS</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="blankdivider30"></div>
+			<div class="aligncenter">
+				<a target="_blank" href="http://www.holamundo.es/lenguaje/php/articulos/" class="btn btn-large btn-theme">MAS BLOGS</a>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+	<!-- end spacer section -->
+	<!-- section: contact -->
+	<section id="maincontent" class="section green" class="container-fluid" name="con">
+		<div class="container">
+			<div class="row">
+				<div class="span8" class="container" style="margin: auto;">
+					<h4>OPERACIONES EN MYSQL</h4>
+					<div class="tabbable" class="container">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#one" data-toggle="tab"><i class="icon-rocket"></i> insercion de datos</a></li>
+							<li><a href="#two" data-toggle="tab">eliminacion de datos</a></li>
+							<li><a href="#three" data-toggle="tab">actualizacion de datos</a></li>
+							<li><a href="#four" data-toggle="tab">consultas</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="one">
+								<p>
+
+									La forma más directa de insertar una fila nueva en una tabla es mediante una sentencia INSERT. En la forma más simple de esta sentencia debemos indicar la tabla a la que queremos añadir filas, y los valores de cada columna. Las columnas de tipo cadena o fechas deben estar entre comillas sencillas o dobles, para las columnas numéricas esto no es imprescindible, aunque también pueden estar entrecomilladas.
+									 
+                                     <img src="img/1.png">
+
+							</div>
+							<div class="tab-pane" id="two">
+								<p>
+									La sentencia DELETE sirve para borrar filas de una tabla.<br>
+                                  La sintaxis de SQL DELETE es:
+                                  <br><br>
+
+                                   DELETE FROM nombre tabla 
+                                    WHERE nombre columna = valor
+
+								</p>
+								
+							</div>
+							<div class="tab-pane" id="three">
+								<p>
+									La sentencia UPDATE se utiliza para modificar valores en una tabla.<br>
+                                      La sintaxis de SQL UPDATE es:
+  
+								</p>
+								<p>
+									UPDATE nombre tabla SET columna1 = valor1 WHERE columna3 = valor3
+
+								</p>
+								<p>La cláusula SET establece los nuevos valores para las columnas indicadas.
+La cláusula WHERE sirve para seleccionar las filas que queremos modificar.
+</p>
+							</div>
+
+
+							<div class="tab-pane" id="four">
+								<p>
+								la sentencia SELECT, tiene como funcionalidad realizar consultas sobre una o varias tablas de una base de datos para extraer un determinado número de filas. La sintaxis es la siguiente: </p>
+<br> 
+SELECT columna1, columna2 FROM nombretabla
+
+<br>
+
+<p>A continuación, vamos a complicar un poco la cosa aprendiendo a realizar consultas en varias tablas de la base de datos al mismo tiempo.</p>
+<br>
+<p>Es habitual que queramos acceder a datos que se encuentran en más de una tabla y mostrar información mezclada de todas ellas como resultado de una consulta. Para ello tendremos que hacer combinaciones de columnas de tablas diferentes.
+	<br>
+
+En SQL es posible hacer esto especificando más de una tabla en la cláusula FROM de la instrucción SELECT.</p>
+
+<br>
+
+
+<p>Operaciones de unión - JOIN
+	<br>
+La operación JOIN o combinación permite mostrar columnas de varias tablas como si se tratase de una sola tabla, combinando entre sí los registros relacionados usando para ello claves externas
+
+  
+								</p>
+						<img align="center" style="width: 300px; height: 300px;" src="img/2.png">
+								
+
+
+								<p>Con el modelo de entidad relación anterior realizaremos la sintaxis de una consulta multitabla.
+<br>
+<br>
+<b>Select autor,Titulo,nombre_del_lector,Genero,dirección from Libros join préstamo on libros.idLibro=préstamo.idLibro join Lectores on préstamo.idLector=Lectores.idLector;</b>
+<br><br>
+ En el ejemplo anterior mostramos en la consulta los campos autor, título y genero de la tabla libros, nombre del lector y dirección  de la tabla lectores, esto fue posible gracias a las conexiones de las tablas por medio de las claves principales y foráneas .</p> 
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+					<!--end: Accordion -->
+				</div>
+			</div>
+			<div class="video-responsive">
+			<iframe width="250" height="250" src="https://www.youtube.com/embed/5u2YDT0d6ok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		</section>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="span6 offset3">
+					<ul class="social-networks">
+						
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		<!-- ./container -->
+	</footer>
+	<a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.scrollTo.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<script src="js/jquery.localScroll.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/isotope.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/inview.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="contactform/contactform.js"></script>
+	<script type="text/javascript">// Carousel Auto-Cycle
+  $(document).ready(function() {
+    $('.carousel').carousel({
+      interval: 6000
+    })
+  });
+</script>
+</body>
+
+</html>
